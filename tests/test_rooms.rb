@@ -5,7 +5,7 @@ require './price'
 
 class TestAgeChecker < Minitest::Test
   def test_age_check
-    assert_equal "Hi Srisai Bodduluri your booking of 3 rooms for 2 days has been successfully completed.", AgeChecker.new("Srisai", "Bodduluri", 3, 2, 23).age_check, "Something went wrong while booking rooms."
+    assert_equal "Hi Srisai Bodduluri your booking of 3 rooms for 2 days has been initiated.", AgeChecker.new("Srisai", "Bodduluri", 3, 2, 23).age_check, "Something went wrong while booking rooms."
   end
 end
   

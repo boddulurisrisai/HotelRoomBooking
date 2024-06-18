@@ -31,9 +31,9 @@ end
 class AgeChecker < Bookings
   def age_check
     if age < 18
-    "Hi #{first_name} #{last_name} your booking of #{no_of_rooms} rooms for #{days} days is not successful as your age is less than 18 years."
+    return "Hi #{first_name} #{last_name} your booking of #{no_of_rooms} rooms for #{days} days is not successful as your age is less than 18 years."
     else
-    "Hi #{first_name} #{last_name} your booking of #{no_of_rooms} rooms for #{days} days has been successfully completed."
+    return "Hi #{first_name} #{last_name} your booking of #{no_of_rooms} rooms for #{days} days has been initiated."
     end
   end
 
@@ -53,6 +53,6 @@ no_of_rooms = gets.chomp.to_i
 puts "Enter the number of days you want to book the room:"
 days = gets.chomp.to_i
 b=AgeChecker.new(first_name, last_name, no_of_rooms, days, age)
-b.age_check
+puts b.age_check
 c=Price.new
-c.calculate_amount(no_of_rooms, days, age)
+puts c.calculate_amount(no_of_rooms, days, age)
