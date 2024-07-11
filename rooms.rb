@@ -1,4 +1,5 @@
 require_relative 'price'
+require "activesupport/all"
 class Bookings
   attr_reader :first_name, :last_name, :no_of_rooms, :days, :age
 
