@@ -1,7 +1,8 @@
 class Vehicle
   require "pry-byebug"
 
-  attr_accessor :make, :model, :year, :vehicle_count
+  attr_accessor :model, :vehicle_count
+  attr_reader :make, :year
   
   def initialize(make, model, year, vehicle_count)
     @make = make
@@ -9,6 +10,20 @@ class Vehicle
     @year = year
     @vehicle_count = vehicle_count
   end
+
+  def make=(value)
+    unless value.is_a(String)
+      raise ArgumentError, 'Make must be a string'
+    end
+    @make = value.capitalize
+  end
+
+  def year=(value)
+    unless value.is_a?(Integer)
+      raise ArgumentError, "Year must be an Integer"
+    end
+  end
+
 
   
   def display_info
@@ -27,7 +42,7 @@ class Bike < Vehicle
 
 
   def display_info
-    return "#{super} and the type is : #{@type}\n"
+    return "#{super}and the type is : #{@type}"
   end
 
   def self.category
@@ -54,7 +69,8 @@ end
 
 
 puts("Enter the make of bike")
-make = gets.chomp.to_s
+make = gets.chomp
+puts make.class
 puts("Enter the model of bike")
 model = gets.chomp
 puts("Enter the year of the bike")
@@ -64,12 +80,13 @@ vehicle_count = gets.chomp
 puts("Enter type of the bike")
 type = gets.chomp
 
-  b = Bike.new(make, model, year, vehicle_count, type)
-  puts b.display_info
-  puts Bike.category
+b = Bike.new(make, model, year, vehicle_count, type)
+puts b.display_info
+
+puts Bike.category
 
 c=Car.new("November", "Hyundia", 2003, 21, 4)
-puts Car.category
+#puts Car.category
 
 
 puts c.display_info
